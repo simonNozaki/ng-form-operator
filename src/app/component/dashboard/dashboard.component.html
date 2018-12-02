@@ -1,0 +1,39 @@
+<p>
+  dashboard works!
+</p>
+<div>
+    <div>
+        タスクのリスト
+            <table>
+              <tr>
+                <th>タイトル</th>
+                <th>タスクラベル</th>
+                <th>タスクメモ</th>
+                <th></th>
+              </tr>
+              <tr *ngFor="let task of taskList">
+                <td (click)="update(task.itemName)"> {{ task.itemName }} </td>
+                <td>{{ task.itemTag }}</td>
+                <td>{{ task.note }}</td>
+                <button (click)="complete(task.taskId)" ></button>
+              </tr>
+              <tr>
+                <td>{{ taskForm.get("itemNameControl").value }}</td>
+                <td>{{ taskForm.get("itemTagControl").value }}</td>
+                <td>{{ taskForm.get("noteControl").value }}</td>
+              </tr>
+            </table>
+    </div>
+    <form [formGroup]="taskForm">  
+        <label>
+            タイトル <input formControlName="itemNameControl" type="text" name="itemName" placeholder="タイトル">
+        </label>
+        <label>
+            タグ <input formControlName="itemTagControl" type="text" name="itemTag" placeholder="タグ">
+        </label>
+        <label>
+            メモ <input formControlName="noteControl" type="text" name="note" placeholder="メモ">
+        </label>
+        <button>追加</button>
+    </form>
+</div>
