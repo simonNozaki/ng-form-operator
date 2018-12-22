@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../service/dashboard.service';
 import { Task } from '../../entity/task';
-import { FormGroup, FormControl, FormControlName } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { _ } from 'underscore';
+import { CommonDeliveryService } from '../../service/common-delivery.service';
 
 /**
  * ダッシュボード用コンポーネントクラス
@@ -17,14 +18,19 @@ export class DashboardComponent implements OnInit {
     /**
      * デフォルトコンストラクタ
      */
-    constructor(private dashboardService: DashboardService) { }
+    constructor(private dashboardService: DashboardService, private commonDeliveryService: CommonDeliveryService) {}
+
+    public userId: string;
 
     /**
      * 起動時のデフォルト処理
      */
     ngOnInit() {
+        this.commonDeliveryService.currentUserId.subscribe((userId: string) => {
+              this.userId = userId;
+        });
         // タスクの一覧を取得してリストに設定する
-        this.taskList = this.dashboardService.fetch();
+        this.taskList = this.dashboardService.fetch(this.userId);
         // エラーメッセージ。デフォルトはnull。
         this.errorMessage = "";
     }

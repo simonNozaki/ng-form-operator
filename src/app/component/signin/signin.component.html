@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="signinForm">
+      <label>
+          メールアドレス <input formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
+      </label>
+      <label>
+          パスワード <input formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
+      </label>
+
+      <button (click)="signin()" [disabled]="">サインイン</button>
+
+  </form>
+
+  <!-- <div *ngIf="violateRistriction()">
+    <p>
+      タイトル : {{ checkedResult }}
+      ステータス : {{ signupForm.get("userNameControl").status }}
+    </p>
+  </div> -->
+</div>

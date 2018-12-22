@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { WebModule } from './module/web/web.module';
 import { DashboardService } from './service/dashboard.service';
+import { SigninComponent } from './component/signin/signin.component';
+import { SigninService } from './service/signin.service';
+import { CommonDeliveryService } from './service/common-delivery.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ import { DashboardService } from './service/dashboard.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DashboardService],
+  providers: [DashboardService, SigninService, CommonDeliveryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { Task } from '../entity/task';
 import { Tasks } from '../resource/mock-tasks';
+import { _ } from 'underscore';
 
 /**
  * ダッシュボードクラスの操作を提供するServiceクラス。
@@ -19,11 +19,10 @@ export class DashboardService {
      * タスクの一覧を取得します。
      * @returns Task[]
      */
-    public fetch(): Task[] {
-        return Tasks;
+    public fetch(userId: string): Task[] {
+        return  _.filter(Tasks, function(task: Task){
+            return task.userId == userId;
+        });
     }
-
-
-
 
 }
