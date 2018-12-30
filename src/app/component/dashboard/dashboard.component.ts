@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
         this.taskList = this.dashboardService.fetch(this.userId);
         // エラーメッセージ。デフォルトはnull。
         this.errorMessage = "";
+        console.log(JSON.stringify({user_id : this.userId}));
     }
 
     //-------------------------

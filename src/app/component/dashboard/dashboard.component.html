@@ -15,7 +15,7 @@
                 <td (click)="update(task.itemName)"> {{ task.itemName }} </td>
                 <td>{{ task.itemTag }}</td>
                 <td>{{ task.note }}</td>
-                <button (click)="complete(task.taskId)" ></button>
+                <button mat-flat-button color="warn" (click)="complete(task.taskId)" ></button>
               </tr>
               <tr>
                 <td>{{ taskForm.get("itemNameControl").value }}</td>
@@ -34,6 +34,6 @@
         <label>
             メモ <input formControlName="noteControl" type="text" name="note" placeholder="メモ">
         </label>
-        <button>追加</button>
+        <button mat-button>追加</button>
     </form>
 </div>

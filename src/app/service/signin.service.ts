@@ -26,13 +26,7 @@ export class SigninService {
      * 条件に合致するモックユーザを取得します。
      */
     public fetch(email: string, password: string): Observable<User[]> {
-        return Rx.Observable.of(Users)
-            // .filter((user: User[], index: number) => {
-            //     if ((user[index].email == email) && (user[index].password == password)) {
-            //         return true;
-            //     }
-            //     return false;
-            // });
+        return Rx.Observable.of(Users);
     }
 
 }

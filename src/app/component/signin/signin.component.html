@@ -1,20 +1,18 @@
-<div>
+<div class="example-container">
   <form [formGroup]="signinForm">
       <label>
-          メールアドレス <input formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
+          メールアドレス 
+          <mat-form-field>
+              <input matInput formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
+          </mat-form-field>
       </label>
       <label>
-          パスワード <input formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
+            パスワード
+            <mat-form-field>
+                <input matInput formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
+            </mat-form-field>
       </label>
 
-      <button (click)="signin()" [disabled]="">サインイン</button>
-
+      <button mat-button (click)="signin()" [disabled]="">サインイン</button>
   </form>
-
-  <!-- <div *ngIf="violateRistriction()">
-    <p>
-      タイトル : {{ checkedResult }}
-      ステータス : {{ signupForm.get("userNameControl").status }}
-    </p>
-  </div> -->
 </div>
