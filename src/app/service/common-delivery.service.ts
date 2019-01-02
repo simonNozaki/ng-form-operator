@@ -7,7 +7,7 @@ export class CommonDeliveryService {
 
     constructor() { }
 
-    private userId: BehaviorSubject<string> = new BehaviorSubject<string>("default user id.");
+    private userId: BehaviorSubject<string> = new BehaviorSubject<string>(null);
     public currentUserId: Observable<string> = this.userId.asObservable();
 
     /**

@@ -50,11 +50,7 @@ export class SigninComponent implements OnInit {
             console.log(users);
             this.commonDeliveryService.changeMessage(users[0].userId);
             this.router.navigateByUrl('/dashboard');
-        })
-
-        // this.commonDeliveryService.changeMessage(target[0].userId);
-        // this.router.navigateByUrl('/dashboard');
-        
+        })        
     }
 
 }

@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* ---------------------- */
+/*  共通系
+* ---------------------- */
+
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+

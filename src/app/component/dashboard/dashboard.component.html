@@ -1,6 +1,3 @@
-<p>
-  dashboard works!
-</p>
 <div>
     <div>
         タスクのリスト
@@ -15,7 +12,9 @@
                 <td (click)="update(task.itemName)"> {{ task.itemName }} </td>
                 <td>{{ task.itemTag }}</td>
                 <td>{{ task.note }}</td>
-                <button mat-flat-button color="warn" (click)="complete(task.taskId)" ></button>
+                <button mat-flat-button color="warn" (click)="complete(task.taskId)" >
+                    <mat-icon svgIcon="thumb-up" aria-hidden="true" aria-label></mat-icon>
+                </button>
               </tr>
               <tr>
                 <td>{{ taskForm.get("itemNameControl").value }}</td>
@@ -24,16 +23,18 @@
               </tr>
             </table>
     </div>
-    <form [formGroup]="taskForm">  
-        <label>
-            タイトル <input formControlName="itemNameControl" type="text" name="itemName" placeholder="タイトル">
-        </label>
-        <label>
-            タグ <input formControlName="itemTagControl" type="text" name="itemTag" placeholder="タグ">
-        </label>
-        <label>
-            メモ <input formControlName="noteControl" type="text" name="note" placeholder="メモ">
-        </label>
+    <form [formGroup]="taskForm" class="example-container">
+        <mat-form-field>
+            <input matInput formControlName="itemNameControl" type="text" name="itemName" placeholder="タイトル">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="itemTagControl" type="text" name="itemTag" placeholder="タグ">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="noteControl" type="text" name="note" placeholder="メモ">
+        </mat-form-field>
         <button mat-button>追加</button>
     </form>
 </div>

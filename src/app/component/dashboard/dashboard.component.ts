@@ -4,6 +4,7 @@ import { Task } from '../../entity/task';
 import { FormGroup, FormControl } from '@angular/forms';
 import { _ } from 'underscore';
 import { CommonDeliveryService } from '../../service/common-delivery.service';
+import { Router } from '@angular/router';
 
 /**
  * ダッシュボード用コンポーネントクラス
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
     /**
      * デフォルトコンストラクタ
      */
-    constructor(private dashboardService: DashboardService, private commonDeliveryService: CommonDeliveryService) {}
+    constructor(private dashboardService: DashboardService, private commonDeliveryService: CommonDeliveryService, private router: Router) {}
 
     public userId: string;
 
@@ -34,6 +35,9 @@ export class DashboardComponent implements OnInit {
         // エラーメッセージ。デフォルトはnull。
         this.errorMessage = "";
         console.log(JSON.stringify({user_id : this.userId}));
+        if(this.userId == null || typeof this.userId == 'undefined'){
+            this.router.navigateByUrl('/signin');
+        }
     }
 
     //-------------------------

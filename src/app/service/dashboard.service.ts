@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Task } from '../entity/task';
 import { Tasks } from '../resource/mock-tasks';
 import { _ } from 'underscore';
@@ -13,7 +12,7 @@ export class DashboardService {
     /**
      * デフォルトコンストラクタ
      */
-    constructor(private httpClinet: HttpClient) { }
+    constructor() { }
 
     /**
      * タスクの一覧を取得します。
