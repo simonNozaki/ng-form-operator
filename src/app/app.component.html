@@ -1,15 +1,10 @@
-<div>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-                <mat-icon>dialpad</mat-icon>
-                <span>Redial</span>
-                <a routerLink="/" mat-menu-item>トップページ</a>
-        </button>
-    </mat-menu>
-    <nav>
-            <a routerLink="/" mat-menu-item>トップページ</a>
-            <a routerLink="dashboard" mat-menu-item>ダッシュボード</a>
-            <a routerLink="signin" mat-menu-item>サインイン</a>
-    </nav>
-</div>
-<router-outlet></router-outlet>
+<ons-page>
+    <ons-toolbar>
+        <div class="toolbar__right">
+            <a routerLink="/" class="toolbar-button">トップページ</a>
+            <a routerLink="dashboard" class="toolbar-button">ダッシュボード</a>
+            <a routerLink="signin" class="toolbar-button">サインイン</a>
+        </div>
+    </ons-toolbar>
+    <router-outlet></router-outlet>
+</ons-page>

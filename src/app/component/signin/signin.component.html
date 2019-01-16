@@ -1,18 +1,13 @@
-<div class="example-container">
-  <form [formGroup]="signinForm">
-      <label>
-          メールアドレス 
-          <mat-form-field>
-              <input matInput formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
-          </mat-form-field>
-      </label>
-      <label>
-            パスワード
-            <mat-form-field>
-                <input matInput formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
-            </mat-form-field>
-      </label>
-
-      <button mat-button (click)="signin()" [disabled]="">サインイン</button>
-  </form>
-</div>
+<ons-page>
+    <div class="example-container">
+    <form [formGroup]="signinForm">
+        <label>
+                <input class="text-input" formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
+        </label>
+        <label>
+                <input class="text-input" formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
+        </label>
+        <button class="button button--outline" (click)="signin()" [disabled]="">サインイン</button>
+    </form>
+    </div>
+</ons-page>

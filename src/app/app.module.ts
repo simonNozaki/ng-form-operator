@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatFormFieldModule, MatMenuModule  } from '@angular/material';
+import { OnsenModule } from 'ngx-onsenui';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -32,7 +33,11 @@ import { CommonDeliveryService } from './service/common-delivery.service';
     MatIconModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    OnsenModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
   providers: [DashboardService, SigninService, CommonDeliveryService],
   bootstrap: [AppComponent]
