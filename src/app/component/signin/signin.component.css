@@ -1,12 +1,15 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.example-container {
-    display: flex;
-    flex-direction: column;
-    margin: 20%;
-  }
+.signin-form-container {
+   display: flex;
+   flex-direction: column;
+  margin: 20%;
+}
   
-.example-container > * {
+.signin-form-container > * {
   width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  position: absolute;
 }
 

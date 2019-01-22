@@ -1,10 +1,11 @@
-<ons-page>
-    <ons-toolbar>
+<ons-page class="ons-page">
+    <ons-toolbar class="ons-toolbar">
         <div class="toolbar__right">
             <a routerLink="/" class="toolbar-button">トップページ</a>
             <a routerLink="dashboard" class="toolbar-button">ダッシュボード</a>
             <a routerLink="signin" class="toolbar-button">サインイン</a>
         </div>
     </ons-toolbar>
-    <router-outlet></router-outlet>
+    <router-outlet class="root-element">
+    </router-outlet>
 </ons-page>

@@ -1,13 +1,15 @@
-<ons-page>
-    <div class="example-container">
+<div class="signin-form-container">
     <form [formGroup]="signinForm">
-        <label>
+        <ul>
+            <li>
+                <!-- text-inputクラスはONSE UIの要素 -->
                 <input class="text-input" formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
-        </label>
-        <label>
+            </li>
+            <li>
+                <!-- text-inputクラスはONSE UIの要素 -->
                 <input class="text-input" formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
-        </label>
-        <button class="button button--outline" (click)="signin()" [disabled]="">サインイン</button>
+            </li>
+        </ul>
+    <button class="button button--outline" (click)="signin()" [disabled]="">サインイン</button>
     </form>
-    </div>
-</ons-page>
+</div>

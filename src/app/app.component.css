@@ -1,0 +1,22 @@
+/*-----------  モニタ、PCデフォルト -----------*/
+.ons-toolbar{
+
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
+.ons-page{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*
+* iPad横幅対応
+*/
+@media(max-width:767px){
+
+
+}
