@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { DashboardService } from '../../service/dashboard.service';
 import { Task } from '../../entity/task';
 import { FormGroup, FormControl } from '@angular/forms';
 import { _ } from 'underscore';
 import { CommonDeliveryService } from '../../service/common-delivery.service';
 import { Router } from '@angular/router';
+import { Chart, ChartData, ChartOptions } from 'chart.js';
+import { GraphControl } from '../../entity/graph-control';
 
 /**
  * ダッシュボード用コンポーネントクラス
@@ -14,14 +16,27 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
 
     /**
      * デフォルトコンストラクタ
      */
-    constructor(private dashboardService: DashboardService, private commonDeliveryService: CommonDeliveryService, private router: Router) {}
+    constructor(private dashboardService: DashboardService, private commonDeliveryService: CommonDeliveryService, private router: Router, private elementRef: ElementRef) {}
 
     public userId: string;
+
+    @ViewChild('taskgraph')
+    public ref: ElementRef;
+
+    @Input()
+    public data: ChartData;
+
+    @Input()
+    public options: ChartOptions;
+
+    public context: CanvasRenderingContext2D;
+    
+    public chart: Chart;
 
     /**
      * 起動時のデフォルト処理
@@ -38,6 +53,26 @@ export class DashboardComponent implements OnInit {
         if(this.userId == null || typeof this.userId == 'undefined'){
             this.router.navigateByUrl('/signin');
         }
+    }
+
+    /**
+     * template初期化後処理
+     */
+    ngAfterViewInit() {
+
+        console.log(this.ref);
+
+        var graph: GraphControl = new GraphControl();
+
+        // canvasを取得
+        this.context = this.ref.nativeElement.getContext('2d');
+
+        // チャートの作成
+        this.chart = new Chart(this.context, {
+            type: 'bar',     // barチャート表示
+            data: graph.data,      // データをプロパティとして渡す
+            options: graph.options // オプションをプロパティとして渡す
+        })
     }
 
     //-------------------------

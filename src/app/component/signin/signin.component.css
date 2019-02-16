@@ -1,15 +1,63 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../../app.component.css";
 
+/* ページタイトル */
+.task-manager-signin-title {
+  width: 576px;
+  height: 30px;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* フォームコンテナ */
 .signin-form-container {
-   display: flex;
-   flex-direction: column;
-  margin: 20%;
-}
-  
-.signin-form-container > * {
-  width: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
-  position: absolute;
+  width: 576px;
+  height: 420px;
+  border-radius: 10px;
+  background-color: #fafafa;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
 }
 
+/* フォーム項目 */
+.signin-form-item input{
+  width: 300px;
+  height: 40px;
+  font-family: NotoSansCJKjp;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #bdbdbd;
+  background-color: #fafafa;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* フォーム、送信ボタン */
+.signin-form-submit {
+  width: 300px;
+  height: 40px;
+  font-family: NotoSansCJKjp;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #00b686;
+  margin-top: 100px;
+}

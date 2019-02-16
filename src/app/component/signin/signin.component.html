@@ -1,15 +1,23 @@
-<div class="signin-form-container">
-    <form [formGroup]="signinForm">
-        <ul>
+<div class="mt-50">
+    <!--
+        タイトル文字列
+    -->
+    <h1 class="task-manager-signin-title">
+        Task Managerを新しくはじめる
+    </h1>
+
+    <!--
+        入力フォームコンテナ
+    -->
+    <form [formGroup]="signinForm" class="signin-form-container">
+        <ul class="signin-form-item">
             <li>
-                <!-- text-inputクラスはONSE UIの要素 -->
-                <input class="text-input" formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
+                <input class="pt-50" formControlName="emailControl" type="text" name="email" placeholder="メールアドレス" >
             </li>
             <li>
-                <!-- text-inputクラスはONSE UIの要素 -->
-                <input class="text-input" formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
+                <input class="pt-50" formControlName="passwordControl" type="password" name="password" placeholder="パスワード" >
             </li>
         </ul>
-    <button class="button button--outline" (click)="signin()" [disabled]="">サインイン</button>
+    <button class="signin-form-submit" (click)="signin()" [disabled]="">サインイン</button>
     </form>
 </div>

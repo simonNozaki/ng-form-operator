@@ -1,11 +1,14 @@
-<ons-page class="ons-page">
-    <ons-toolbar class="ons-toolbar">
-        <div class="toolbar__right">
-            <a routerLink="/" class="toolbar-button">トップページ</a>
-            <a routerLink="dashboard" class="toolbar-button">ダッシュボード</a>
-            <a routerLink="signin" class="toolbar-button">サインイン</a>
+<div>
+    <nav class="task-manager-common-hedaer">
+        <h1 class="task-manager-common-header-title ml-20">
+                <a routerLink="/">Task Manager</a>
+        </h1>
+        <div class="task-manager-common-header-items">
+            <a routerLink="/">トップページ</a>
+            <a routerLink="dashboard">ダッシュボード</a>
+            <a routerLink="signin">サインイン</a>
         </div>
-    </ons-toolbar>
+    </nav>
     <router-outlet class="root-element">
     </router-outlet>
-</ons-page>
+</div>
