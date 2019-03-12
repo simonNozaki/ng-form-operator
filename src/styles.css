@@ -1,12 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import '../node_modules/onsenui/css/onsenui.css';
-@import '../node_modules/onsenui/css/onsen-css-components.css';
-
 /* ---------------------- */
 /*  共通系
 * ---------------------- */
-
+/* 枠線反映しない */
+input, button {
+    border-style: none;
+}
 
 a {
     text-decoration: none;
@@ -16,3 +14,9 @@ ul, li {
     list-style: none;
 }
 
+/* フォント共通設定 */
+body {
+    margin: 0;
+    height: 100%;
+    font-family: NotoSansCJKjp, メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}

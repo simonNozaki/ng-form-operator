@@ -1,5 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "../../app.component.css";
+@import "../../app.component.scss";
 
 /* ページタイトル */
 .task-manager-signin-title {
@@ -33,12 +33,7 @@
 .signin-form-item input{
   width: 300px;
   height: 40px;
-  font-family: NotoSansCJKjp;
   font-size: 20px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
   letter-spacing: normal;
   color: #bdbdbd;
   background-color: #fafafa;

@@ -1,0 +1,45 @@
+/* 
+ * ヘッダーナビゲーション 
+ */
+ /* 共通ヘッダー */
+.task-manager-common-hedaer {
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+    background-color: #1de9b6;
+}
+
+/* 共通ヘッダータイトル */
+.task-manager-common-header-title{
+    @extend .task-manager-common-hedaer;
+    font-size: 30px;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+/* 共通ヘッダーリンク */
+.task-manager-common-hedaer a{
+
+}
+
+/* 
+ * 使い回しパーツ 
+ */
+
+/* マージン */
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+/* パディング */
+.pt-50 {
+    padding-top: 50px;
+}

@@ -12,7 +12,7 @@ import { _ } from 'underscore';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
 
@@ -37,6 +37,9 @@ export class SigninComponent implements OnInit {
         passwordControl: new FormControl("", [Validators.required, Validators.maxLength(50)])
     })
 
+    /**
+     * サインインを実行します。
+     */
     public signin(): void {
         var email = this.signinForm.get("emailControl").value;
         var password = this.signinForm.get("passwordControl").value;
