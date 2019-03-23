@@ -15,4 +15,8 @@ export class Task {
 
     public userId: string;
 
+    public startDate: string;
+
+    public deadline: string;
+
 }

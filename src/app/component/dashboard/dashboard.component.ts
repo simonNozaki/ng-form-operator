@@ -7,6 +7,8 @@ import { CommonDeliveryService } from '../../service/common-delivery.service';
 import { Router } from '@angular/router';
 import { Chart, ChartData, ChartOptions } from 'chart.js';
 import { GraphControl } from '../../entity/graph-control';
+import * as CanvasJS from '../../lib/canvasjs.min';
+import { Tasks } from '../../resource/mock-tasks';
 
 /**
  * ダッシュボード用コンポーネントクラス
@@ -38,6 +40,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     
     public chart: Chart;
 
+    public dataPoints: any[] = [];
+
     /**
      * 起動時のデフォルト処理
      */
@@ -53,6 +57,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         if(this.userId == null || typeof this.userId == 'undefined'){
             this.router.navigateByUrl('/signin');
         }
+
+        for(var index: number = 0; index < Tasks.length; index++){
+            var data = { x: (index * 5), y: [Date.parse(Tasks[index].startDate), Date.parse(Tasks[index].deadline)], label: Tasks[index].itemName };
+            console.log({ x: (index * 5), y: [Tasks[index].startDate, Tasks[index].deadline], label: Tasks[index].itemName });
+            this.dataPoints.push(data);
+        }
+
+        console.log(this.dataPoints);
+        
+        // canvasjs
+        let chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: false,
+            exportEnabled: true,
+            title: {
+                text: ""
+            },
+            data: [{
+                type: "rangeBar",
+                dataPoints: this.dataPoints
+            }]
+        });
+            
+        chart.render();
     }
 
     /**
