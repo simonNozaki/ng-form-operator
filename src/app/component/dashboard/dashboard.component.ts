@@ -5,10 +5,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { _ } from 'underscore';
 import { CommonDeliveryService } from '../../service/common-delivery.service';
 import { Router } from '@angular/router';
-import { Chart, ChartData, ChartOptions } from 'chart.js';
-import { GraphControl } from '../../entity/graph-control';
 import * as CanvasJS from '../../lib/canvasjs.min';
 import { Tasks } from '../../resource/mock-tasks';
+
+declare var google: any;
+
+declare var googleLoaded: any;
 
 /**
  * ダッシュボード用コンポーネントクラス
@@ -30,11 +32,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     @ViewChild('taskgraph')
     public ref: ElementRef;
 
-    @Input()
-    public data: ChartData;
-
-    @Input()
-    public options: ChartOptions;
+    @ViewChild('google-chart')
+    public googleChart: ElementRef;
 
     public context: CanvasRenderingContext2D;
     
@@ -60,7 +59,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
         for(var index: number = 0; index < Tasks.length; index++){
             var data = { x: (index * 5), y: [Date.parse(Tasks[index].startDate), Date.parse(Tasks[index].deadline)], label: Tasks[index].itemName };
-            console.log({ x: (index * 5), y: [Tasks[index].startDate, Tasks[index].deadline], label: Tasks[index].itemName });
+            console.log(Date.parse(Tasks[index].deadline) - Date.parse(Tasks[index].startDate));
             this.dataPoints.push(data);
         }
 
@@ -87,20 +86,38 @@ export class DashboardComponent implements OnInit, AfterViewInit {
      */
     ngAfterViewInit() {
 
-        console.log(this.ref);
+        // ここからGoogle chart
+        if(!googleLoaded) {
+            googleLoaded = true;
+            google.charts.load('current', {'packages':['corechart']})
+        }
 
-        var graph: GraphControl = new GraphControl();
+        // 要素の取得を遅延実行できるようにする
+        setTimeout(() => {
+            const elm = this.googleChart.nativeElement;
+            google.charts.setOnLoadCallback(drawChart);
+    
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Topping');
+                data.addColumn('number', 'Slices');
+                data.addRows([
+                    ['Mushrooms', 3],
+                    ['Onions', 1],
+                    ['Olives', 1],
+                    ['Zucchini', 1],
+                    ['Pepperoni', 2]
+                ]);
+                var options = {'title':'How Much Pizza I Ate Last Night',
+                                'width':400,
+                                'height':300};
+                var chart = new google.visualization.PieChart(elm)
+                chart.draw(data, options);
+            }
+        }, 1000);
 
-        // canvasを取得
-        this.context = this.ref.nativeElement.getContext('2d');
-
-        // チャートの作成
-        this.chart = new Chart(this.context, {
-            type: 'bar',     // barチャート表示
-            data: graph.data,      // データをプロパティとして渡す
-            options: graph.options // オプションをプロパティとして渡す
-        })
     }
+
 
     //-------------------------
     // コンポーネント内プロパティ

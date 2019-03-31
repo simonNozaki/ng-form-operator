@@ -13,13 +13,15 @@ import { DashboardService } from './service/dashboard.service';
 import { SigninComponent } from './component/signin/signin.component';
 import { SigninService } from './service/signin.service';
 import { CommonDeliveryService } from './service/common-delivery.service';
+import { ChartComponent } from './component/chart/chart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    SigninComponent
+    SigninComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

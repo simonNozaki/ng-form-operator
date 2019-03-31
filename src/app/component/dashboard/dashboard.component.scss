@@ -10,17 +10,22 @@
     margin: 0 10% 0 10%;
 }
 
-#taskgraph {
+.commom-graph-style {
     position: absolute;
-    width: 800px;
-    height: 550px;
-    left: 300px;
-    top: 100px;
+    width: 400px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 0;    
+}
+
+#taskgraph {
+    @extend .commom-graph-style;
 }
 
 #chartContainer {
-    height: 400px;
-    width: 800px;
-    margin: 0 auto;
-    padding: 0;
+    @extend .commom-graph-style;
+}
+
+#google-chart {
+    @extend .commom-graph-style;
 }
