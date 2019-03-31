@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
      * デフォルトコンストラクタ
      */
     constructor(private _elementRef: ElementRef) { 
-        this.ref = _elementRef.nativeElement;
+        this.ref = this._elementRef.nativeElement;
     }
     
     @ViewChild('taskgraph')
@@ -40,11 +40,11 @@ export class ChartComponent implements OnInit, AfterViewInit {
                       label: '# of Votes',
                       data: [
                           {
-                              x: new Date('2019-03-31T00:00:00'),
+                              x: '2019-03-31',
                               y: 'Red'
                           },
                           {
-                              x: new Date('2019-01-01T00:00:00'),
+                              x: '2019-04-01',
                               y: 'Blue'
                           }
                       ],
@@ -76,11 +76,14 @@ export class ChartComponent implements OnInit, AfterViewInit {
                             displayFormats: {
                               week: 'll'
                             },
-                            unit: 'day',
+                            unit: 'week',
                             minUnit: 'day'
                           },
                           distribution: 'linear',
-                          bounds: 'data',
+                          bounds: 'ticks',
+                          ticks: {
+                            source: 'data'
+                          }
                         }
                       ],
                       yAxes: [{
